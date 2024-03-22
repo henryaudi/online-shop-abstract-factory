@@ -11,25 +11,16 @@ import factory.StoreFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Order {
+public abstract class Order {
 
     // Data Field
-    StoreFactory store;
     List<Accessories> accessories;
     List<Computer> computers;
     List<Tablet> tablets;
     List<Watch> watches;
 
     // Constructor
-    public Order(String producer) {
-        if (producer.equals("Apple")) {
-            this.store = new AppleStoreFactory();
-        } else {
-            this.store = new SamsungStoreFactory();
-        }
-
-        // Set the shopping cart.
-        // Initially empty.
+    public Order() {
         this.setAccessories(new ArrayList<Accessories>());
         this.setComputers(new ArrayList<Computer>());
         this.setTablets(new ArrayList<Tablet>());
@@ -37,14 +28,6 @@ public class Order {
     }
 
     // Getters and setters
-
-    public StoreFactory getStore() {
-        return store;
-    }
-
-    public void setStore(StoreFactory store) {
-        this.store = store;
-    }
 
     public List<Accessories> getAccessories() {
         return accessories;
@@ -77,4 +60,11 @@ public class Order {
     public void setWatches(List<Watch> watches) {
         this.watches = watches;
     }
+
+    // Methods
+
+    public abstract void orderTablet(String item);
+    public abstract void orderWatch(String item);
+    public abstract void orderComputer(String item);
+    public abstract void orderAccessories(String item);
 }
