@@ -67,4 +67,5 @@ public abstract class Order {
     public abstract void orderWatch(String item);
     public abstract void orderComputer(String item);
     public abstract void orderAccessories(String item);
+    public abstract void printReceipt();
 }

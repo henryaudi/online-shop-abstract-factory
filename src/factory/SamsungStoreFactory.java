@@ -8,6 +8,11 @@ import entity.*;
 
 public class SamsungStoreFactory implements StoreFactory {
 
+    /**
+     * Instantiate Accessories item based on the given item name.
+     * @param item: the name of the item
+     * @return: the instantiated Accessories item object
+     */
     @Override
     public Accessories orderAccessories(String item) {
         return switch (item) {
@@ -17,11 +22,21 @@ public class SamsungStoreFactory implements StoreFactory {
         };
     }
 
+    /**
+     * Instantiate Computer item based on the given item name.
+     * @param item: the name of the item
+     * @return: the instantiated Computer item object
+     */
     @Override
     public Computer orderComputer(String item) {
         return item.equals("Notebook") ? new Notebook() : null;
     }
 
+    /**
+     * Instantiate Watch item based on the given item name.
+     * @param item: the name of the item
+     * @return: the instantiated Watch item object
+     */
     @Override
     public Watch orderWatch(String item) {
         return switch (item) {
@@ -31,6 +46,11 @@ public class SamsungStoreFactory implements StoreFactory {
         };
     }
 
+    /**
+     * Instantiate Tablet item based on the given item name.
+     * @param item: the name of the item
+     * @return: the instantiated Tablet item object
+     */
     @Override
     public Tablet orderTablet(String item) {
         return switch (item) {
@@ -39,4 +59,5 @@ public class SamsungStoreFactory implements StoreFactory {
             default -> null;
         };
     }
+
 }
